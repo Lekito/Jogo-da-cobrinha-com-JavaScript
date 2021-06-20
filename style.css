@@ -1,0 +1,10 @@
+body{
+    height: 95vh;
+    width: 95;
+    display: flex;
+    justify-content: center; /*alinha horizontalmente no meio */
+    align-items: center; /* alinha verticalmente no meio*/
+    flex-direction: column; /* coloca um elemnto abaixo do outro */
+    color: rgb(215, 224, 215);
+    background-color: rgb(32, 31, 31);
+}
