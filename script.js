@@ -2,13 +2,13 @@ let canvas = document.getElementById("snake");
 let context = canvas.getContext("2d"); // contexto renderiza o desenho dentro do Canvas. 
 let box = 32;
 let snake = [];
-snake[0] = { 
+snake[0] = { // Criando a cobrinha 
     x: 8 * box,
     y: 8 * box
 }
 let direction = "right"; // variável responsável pela direção da cobrinha.
 
-let food = {
+let food = { // Criando a comida da cobrinha de forma aleatoria.
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
 }
@@ -64,8 +64,15 @@ function iniciarJogo(){
     if(direction == "down") 
         snakeY += box;
 
-    // Vamos adicionar a função POP para retirar o último elemento do Array da cobrinha.
-    snake.pop();
+    if(snakeX != food.x || snakeY != food.y){
+        snake.pop(); // Vamos adicionar a função POP para retirar o último elemento do Array da cobrinha.
+    }
+    else{ // adicionando o tamanho a cobrinha ao comer a comida
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box;
+    }
+
+    
 
     //Precisamos criar cabeça movel da cobrinha. Vamos usar unShift, que é um método para add um elemento a frente.
     let newHead = {
